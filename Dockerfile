@@ -8,10 +8,9 @@ COPY package*.json ./
 
 RUN npm install
 
-# compile all typescript files
-RUN  tsc
-
 COPY . .
+
+RUN npm run build
 
 EXPOSE 6060
 CMD [ "node", "build/server.js" ]
