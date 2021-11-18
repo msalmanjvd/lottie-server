@@ -8,8 +8,8 @@ COPY package*.json ./
 
 RUN npm install
 
-# compile all type script file
-RUN npm tsc
+# compile all typescript files
+RUN npm run tsc
 
 COPY . .
 
