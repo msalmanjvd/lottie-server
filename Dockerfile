@@ -9,7 +9,7 @@ COPY package*.json ./
 RUN npm install
 
 # compile all typescript files
-RUN npm run tsc
+RUN  tsc
 
 COPY . .
 
