@@ -4,7 +4,7 @@ const index_1 = require("./../database/entities/index");
 // configuration for database
 const config = {
     type: "postgres",
-    host: process.env.POSTGRES_HOST || "3.91.145.111",
+    host: process.env.POSTGRES_HOST || "locahost",
     port: Number(process.env.POSTGRES_PORT) || 5432,
     username: process.env.POSTGRES_USER || "postgres",
     password: process.env.POSTGRES_PASSWORD || "admin",
