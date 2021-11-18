@@ -29,6 +29,7 @@ const addUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
         yield client.save();
     }
     catch (err) {
+        console.log(err);
         logger_1.Logs.Error("Error!", "Cannot Create User!");
         return null;
     }

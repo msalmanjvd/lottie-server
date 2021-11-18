@@ -22,6 +22,7 @@ const addUser = async (data: any) => {
     const client = Users.create(user);
     await client.save();
   } catch (err) {
+    console.log(err);
     Logs.Error("Error!", "Cannot Create User!");
     return null;
   }

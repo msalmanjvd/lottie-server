@@ -21,6 +21,7 @@ function DbConnection() {
             let connection = yield (0, typeorm_1.createConnection)(dbConfig_1.default);
             logger_1.Logs.Info("Sucsess", "Database Connected Successfuly!");
             logger_1.Logs.Info("Connection Info", connection);
+            yield connection.synchronize();
             return true;
         }
         catch (error) {

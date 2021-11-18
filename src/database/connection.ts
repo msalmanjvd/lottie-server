@@ -7,7 +7,7 @@ async function DbConnection(): Promise<Boolean> {
     let connection = await createConnection(config);
     Logs.Info("Sucsess", "Database Connected Successfuly!");
     Logs.Info("Connection Info", connection);
-
+    await connection.synchronize();
     return true;
   } catch (error) {
     Logs.Error("Connection Error", "Cannot Connect to Database!");
