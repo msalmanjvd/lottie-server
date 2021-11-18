@@ -6,9 +6,10 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 
-RUN npm install -g tsc \
-    && npm install -g concurrently \
-    && npm install -g typescript 
+RUN npm install
+
+# compile all typescript files
+RUN  tsc
 
 COPY . .
 
