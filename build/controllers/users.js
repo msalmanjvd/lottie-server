@@ -47,8 +47,8 @@ const getAllUsers = () => __awaiter(void 0, void 0, void 0, function* () {
 });
 exports.getAllUsers = getAllUsers;
 // get user with email  @e.g from login
-const getUserById = ({ email }) => __awaiter(void 0, void 0, void 0, function* () {
-    const Email = email;
+const getUserById = (data) => __awaiter(void 0, void 0, void 0, function* () {
+    const Email = data.email;
     try {
         const userRepository = yield (0, typeorm_1.getConnection)()
             .getRepository(users_1.default)

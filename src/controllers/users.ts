@@ -38,9 +38,12 @@ const getAllUsers = async () => {
   }
 };
 
+type query = {
+  email: String;
+};
 // get user with email  @e.g from login
-const getUserById = async ({ email }) => {
-  const Email = email;
+const getUserById = async (data: query) => {
+  const Email = data.email;
   try {
     const userRepository = await getConnection()
       .getRepository(Users)

@@ -9,7 +9,7 @@ const config = {
     username: process.env.POSTGRES_USER || "postgres",
     password: process.env.POSTGRES_PASSWORD || "admin",
     database: process.env.POSTGRES_DB || "lottiefilesdb",
-    entities: [index_1.Posts, index_1.Users, index_1.Animations, index_1.Tags],
+    entities: [index_1.Users, index_1.Animations, index_1.Tags],
     synchronize: true, //will auto generate tables in database
 };
 exports.default = config;

@@ -16,6 +16,7 @@ type newpost = {
     tags: Array<string>;
   };
 };
+
 const addNewAnimation = async (data: newpost) => {
   // get a connection and create a new query runner
   const connection = getConnection();
@@ -31,7 +32,10 @@ const addNewAnimation = async (data: newpost) => {
     const client = Animations.create(post);
     let animation = await client.save();
     if (tags.length) {
-      let tagsData = tags.map((tag: any) => {
+      let tagsData: Array<any> = tags.map((tag: any) => {
+        let newTag = new Tags();
+        newTag.name = tag.nametag.toLowerCase();
+        newTag.animationsId = animation.id.toString();
         return {
           name: tag.toLowerCase(), // convert to lower case
           animationsId: animation.id,
