@@ -12,5 +12,7 @@ COPY . .
 
 RUN npm run build
 
+COPY .env ./build
 EXPOSE 6060
-CMD [ "node", "build/server.js" ]
+
+CMD [ "npm", "start" ]
