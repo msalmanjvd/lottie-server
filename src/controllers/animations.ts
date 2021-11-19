@@ -34,7 +34,7 @@ const addNewAnimation = async (data: newpost) => {
     if (tags.length) {
       let tagsData: Array<any> = tags.map((tag: any) => {
         let newTag = new Tags();
-        newTag.name = tag.nametag.toLowerCase();
+        newTag.name = tag.toLowerCase();
         newTag.animationsId = animation.id.toString();
         return {
           name: tag.toLowerCase(), // convert to lower case

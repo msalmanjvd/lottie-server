@@ -34,7 +34,7 @@ const addNewAnimation = (data) => __awaiter(void 0, void 0, void 0, function* ()
         if (tags.length) {
             let tagsData = tags.map((tag) => {
                 let newTag = new tags_1.default();
-                newTag.name = tag.nametag.toLowerCase();
+                newTag.name = tag.toLowerCase();
                 newTag.animationsId = animation.id.toString();
                 return {
                     name: tag.toLowerCase(),

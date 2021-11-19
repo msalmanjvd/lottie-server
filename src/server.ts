@@ -1,6 +1,7 @@
 import express, { Express } from "express";
 import DbConnection from "./database/connection";
 import { ApolloServer } from "apollo-server-express";
+import { IResolvers } from "@graphql-tools/utils";
 import { Logs } from "./utils/logger";
 import cors from "cors";
 import dotEnv from "dotenv";
@@ -16,7 +17,10 @@ import {
   TagResolver,
 } from "./graphql/resolvers/index";
 
-async function startApolloServer(typeDefs: Array<any>, resolvers: Array<any>) {
+async function startApolloServer(
+  typeDefs: Array<any>,
+  resolvers: Array<IResolvers>
+) {
   const server = new ApolloServer({
     typeDefs,
     resolvers,
