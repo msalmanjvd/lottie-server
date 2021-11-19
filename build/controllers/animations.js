@@ -66,7 +66,7 @@ const getAllAnimatons = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const client = yield animations_1.default.find({
             relations: ["tags", "user"],
-            order: { id: "DESC" },
+            order: { id: "ASC" },
         });
         return client;
     }
@@ -82,7 +82,6 @@ const getAnimationById = (id) => __awaiter(void 0, void 0, void 0, function* () 
             select: ["title", "id", "fileUrl"],
             where: { id },
             relations: ["tags", "user"],
-            order: { id: "DESC" },
         });
         return animaiton;
     }
@@ -103,6 +102,7 @@ const getAnimationByUserId = (userId) => __awaiter(void 0, void 0, void 0, funct
             select: ["title", "id", "fileUrl"],
             where: { userId },
             relations: ["tags", "user"],
+            order: { id: "ASC" },
         });
         return animaiton;
     }

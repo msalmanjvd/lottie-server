@@ -64,7 +64,7 @@ const getAllAnimatons = async () => {
   try {
     const client = await Animations.find({
       relations: ["tags", "user"],
-      order: { id: "DESC" },
+      order: { id: "ASC" },
     });
     return client;
   } catch (err) {
@@ -87,7 +87,6 @@ const getAnimationById = async (id: Id) => {
       select: ["title", "id", "fileUrl"],
       where: { id },
       relations: ["tags", "user"],
-      order: { id: "DESC" },
     });
     return animaiton;
   } catch (err) {
@@ -108,6 +107,7 @@ const getAnimationByUserId = async (userId: Id) => {
       select: ["title", "id", "fileUrl"],
       where: { userId },
       relations: ["tags", "user"],
+      order: { id: "ASC" },
     });
 
     return animaiton;
