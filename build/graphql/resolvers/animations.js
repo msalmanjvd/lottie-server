@@ -36,11 +36,8 @@ const animationResolver = {
     //@creats new animation
     Mutation: {
         addnewAnimation: (_, args, context, info) => __awaiter(void 0, void 0, void 0, function* () {
-            (0, animations_1.addNewAnimation)(args);
-            return {
-                title: "Hi",
-                payload: "Here is the payload!",
-            };
+            const Result = yield (0, animations_1.addNewAnimation)(args);
+            return Result;
         }),
     },
 };

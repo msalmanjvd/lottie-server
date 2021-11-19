@@ -26,7 +26,8 @@ const addUser = (data) => __awaiter(void 0, void 0, void 0, function* () {
         user.lastName = lastName;
         user.email = email;
         const client = users_1.default.create(user);
-        yield client.save();
+        const Result = yield client.save();
+        return Result;
     }
     catch (err) {
         console.log(err);

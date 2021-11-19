@@ -43,6 +43,7 @@ const addNewAnimation = async (data: newpost) => {
       });
       await Tags.save(tagsData);
       await queryRunner.commitTransaction();
+      return animation;
     }
     Logs.Info("Record Created!", "Animation Data Saved in The Database.");
   } catch (error) {

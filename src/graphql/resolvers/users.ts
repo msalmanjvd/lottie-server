@@ -5,21 +5,19 @@ const usersResolver: IResolvers = {
   // @quries
   Query: {
     getUser: async (_: any, args: any, context: any, info: any) => {
-      const results = await getUserById(args);
+      const Results = await getUserById(args);
 
-      return results;
+      return Results;
     },
     getAllUsers: async () => {
-      const results = await getAllUsers();
-      return results;
+      const Results = await getAllUsers();
+      return Results;
     },
   },
   Mutation: {
     addnewUser: async (_: any, args: any, context: any, info: any) => {
-      addUser(args);
-      return {
-        fisrtName: "added!",
-      };
+      const Results = await addUser(args);
+      return Results;
     },
   },
 };

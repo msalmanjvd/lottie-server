@@ -43,6 +43,7 @@ const addNewAnimation = (data) => __awaiter(void 0, void 0, void 0, function* ()
             });
             yield tags_1.default.save(tagsData);
             yield queryRunner.commitTransaction();
+            return animation;
         }
         logger_1.Logs.Info("Record Created!", "Animation Data Saved in The Database.");
     }

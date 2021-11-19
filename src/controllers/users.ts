@@ -4,13 +4,16 @@ import { getManager, getConnection, Like } from "typeorm";
 
 import Users from "./../database/entities/users";
 import { Logs } from "../utils/logger";
-interface Post {
-  title: String;
-  payload: String;
+interface UserData {
+  newUser: {
+    email: string;
+    firstName: string;
+    lastName: string;
+  };
 }
 
 // adding a user
-const addUser = async (data: any) => {
+const addUser = async (data: UserData) => {
   try {
     const { firstName, lastName, email } = data.newUser;
     let user = new Users();
@@ -20,7 +23,8 @@ const addUser = async (data: any) => {
     user.email = email;
 
     const client = Users.create(user);
-    await client.save();
+    const Result = await client.save();
+    return Result;
   } catch (err) {
     console.log(err);
     Logs.Error("Error!", "Cannot Create User!");

@@ -36,11 +36,8 @@ const animationResolver: IResolvers = {
   //@creats new animation
   Mutation: {
     addnewAnimation: async (_: any, args: any, context: any, info: any) => {
-      addNewAnimation(args);
-      return {
-        title: "Hi",
-        payload: "Here is the payload!",
-      };
+      const Result = await addNewAnimation(args);
+      return Result;
     },
   },
 };

@@ -14,20 +14,18 @@ const usersResolver = {
     // @quries
     Query: {
         getUser: (_, args, context, info) => __awaiter(void 0, void 0, void 0, function* () {
-            const results = yield (0, users_1.getUserById)(args);
-            return results;
+            const Results = yield (0, users_1.getUserById)(args);
+            return Results;
         }),
         getAllUsers: () => __awaiter(void 0, void 0, void 0, function* () {
-            const results = yield (0, users_1.getAllUsers)();
-            return results;
+            const Results = yield (0, users_1.getAllUsers)();
+            return Results;
         }),
     },
     Mutation: {
         addnewUser: (_, args, context, info) => __awaiter(void 0, void 0, void 0, function* () {
-            (0, users_1.addUser)(args);
-            return {
-                fisrtName: "added!",
-            };
+            const Results = yield (0, users_1.addUser)(args);
+            return Results;
         }),
     },
 };
