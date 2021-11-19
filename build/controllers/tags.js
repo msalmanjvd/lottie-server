@@ -49,7 +49,7 @@ const getAnimationsByTag = (tag) => __awaiter(void 0, void 0, void 0, function* 
             let taggedAnimations = yield animations_1.default.find({
                 where: uniqueAnimationIds,
                 relations: ["user"],
-                order: { id: "ASC" },
+                order: { createdAt: "DESC" },
             });
             return taggedAnimations;
         }
