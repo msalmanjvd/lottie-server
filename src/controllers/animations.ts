@@ -62,7 +62,10 @@ const addNewAnimation = async (data: newpost) => {
  */
 const getAllAnimatons = async () => {
   try {
-    const client = await Animations.find({ relations: ["tags", "user"] });
+    const client = await Animations.find({
+      relations: ["tags", "user"],
+      order: { id: "DESC" },
+    });
     return client;
   } catch (err) {
     Logs.Error("Error!", `Cannot Find Animations!`);
@@ -84,6 +87,7 @@ const getAnimationById = async (id: Id) => {
       select: ["title", "id", "fileUrl"],
       where: { id },
       relations: ["tags", "user"],
+      order: { id: "DESC" },
     });
     return animaiton;
   } catch (err) {

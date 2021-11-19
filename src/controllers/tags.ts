@@ -36,6 +36,7 @@ const getAnimationsByTag = async (tag: String) => {
       let taggedAnimations = await Animations.find({
         where: uniqueAnimationIds,
         relations: ["user"],
+        order: { id: "DESC" },
       });
 
       return taggedAnimations;

@@ -64,7 +64,10 @@ exports.addNewAnimation = addNewAnimation;
  */
 const getAllAnimatons = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const client = yield animations_1.default.find({ relations: ["tags", "user"] });
+        const client = yield animations_1.default.find({
+            relations: ["tags", "user"],
+            order: { id: "DESC" },
+        });
         return client;
     }
     catch (err) {
@@ -79,6 +82,7 @@ const getAnimationById = (id) => __awaiter(void 0, void 0, void 0, function* () 
             select: ["title", "id", "fileUrl"],
             where: { id },
             relations: ["tags", "user"],
+            order: { id: "DESC" },
         });
         return animaiton;
     }
