@@ -4,17 +4,6 @@ import Tags from "../database/entities/tags";
 import Animations from "../database/entities/animations";
 import { Logs } from "../utils/logger";
 
-// get all tags
-const getAllTags = async () => {
-  try {
-    const result = await Tags.find({});
-    return result;
-  } catch (err) {
-    Logs.Error("Error", "Cannot Fetch Tags!");
-    return null;
-  }
-};
-
 // get animations by tag
 const getAnimationsByTag = async (tag: String) => {
   try {
@@ -46,6 +35,23 @@ const getAnimationsByTag = async (tag: String) => {
     }
   } catch (err) {
     Logs.Error("Error", "Cannot Fetch Animations!");
+    return null;
+  }
+};
+
+// get all unique tags from
+
+const getAllTags = async () => {
+  try {
+    // find unique tags
+    let uniqueTags = await getRepository(Tags)
+      .createQueryBuilder("Tags")
+      .select('DISTINCT ("name")')
+      .getRawMany();
+
+    return uniqueTags;
+  } catch (err) {
+    Logs.Error("Error", "Cannot Fetch Tags!");
     return null;
   }
 };

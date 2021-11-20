@@ -18,18 +18,6 @@ const typeorm_1 = require("typeorm");
 const tags_1 = __importDefault(require("../database/entities/tags"));
 const animations_1 = __importDefault(require("../database/entities/animations"));
 const logger_1 = require("../utils/logger");
-// get all tags
-const getAllTags = () => __awaiter(void 0, void 0, void 0, function* () {
-    try {
-        const result = yield tags_1.default.find({});
-        return result;
-    }
-    catch (err) {
-        logger_1.Logs.Error("Error", "Cannot Fetch Tags!");
-        return null;
-    }
-});
-exports.getAllTags = getAllTags;
 // get animations by tag
 const getAnimationsByTag = (tag) => __awaiter(void 0, void 0, void 0, function* () {
     try {
@@ -64,3 +52,19 @@ const getAnimationsByTag = (tag) => __awaiter(void 0, void 0, void 0, function* 
     }
 });
 exports.getAnimationsByTag = getAnimationsByTag;
+// get all unique tags from
+const getAllTags = () => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        // find unique tags
+        let uniqueTags = yield (0, typeorm_1.getRepository)(tags_1.default)
+            .createQueryBuilder("Tags")
+            .select('DISTINCT ("name")')
+            .getRawMany();
+        return uniqueTags;
+    }
+    catch (err) {
+        logger_1.Logs.Error("Error", "Cannot Fetch Tags!");
+        return null;
+    }
+});
+exports.getAllTags = getAllTags;
